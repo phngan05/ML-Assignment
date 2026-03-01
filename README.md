@@ -9,10 +9,10 @@
 ## Team Members
 | Name | Student ID | Email |
 |------|-----------|-------|
-| Phạm Hồng Ngân | 2312232 | ngan.phamhong@email.com |
-| Nguyễn Khánh Trinh | 2313579 | your@email.com |
-| Phan Lê Thiên | 2313221 | your@email.com |
-| Nguyễn Tấn Lộc | 2311957 | your@email.com |
+| Phạm Hồng Ngân | 2312232 | ngan.phamhong@hcmut.edu.vn |
+| Nguyễn Khánh Trinh | 2313579 | trinh.nguyenkhanh@hcmut.edu.vn|
+| Phan Lê Thiên | 2313221 | thien.phan2411@hcmut.edu.vn |
+| Nguyễn Tấn Lộc | 2311957 | loc.nguyen2311957@hcmut.edu.vn |
 ---
 
 ## Objective
