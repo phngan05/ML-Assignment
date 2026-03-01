@@ -67,5 +67,5 @@ pip install -r requirements.txt
 3. Run the notebook or scripts
 
 ## Link
-- **Colab Notebook**:
+- **Colab Notebook**: [Open In Colab](https://colab.research.google.com/github/phngan05/ML-Assignment/blob/main/notebooks/main.ipynb)
 - **Report PDF**: 
