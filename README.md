@@ -23,20 +23,20 @@
 ```sh
 root/
 │
-├── notebooks/ # Google Colab notebooks
+├── notebooks/
 │ └── main.ipynb
 │
-├── modules/ # Python modules
+├── modules/
 │ ├── preprocessing.py
 │ ├── feature_engineering.py
 │ └── model.py
 │
 ├── features/ # Extracted features (.npy / .h5)
 │
-├── reports/ # Final report
+├── reports/
 │ └── report.pdf
 │
-├── requirements.txt # Required libraries
+├── requirements.txt
 └── README.md
 ```
 ---
@@ -57,14 +57,11 @@ root/
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/phngan05/ML-Assignment
+cd ML-Assignment
 ```
-2. Install dependencies
-```sh
-pip install -r requirements.txt
-```
-3. Run the notebook or scripts
+
+2. Run the main.ipynb
 
 ## Link
 - **Colab Notebook**: [Open In Colab](https://colab.research.google.com/github/phngan05/ML-Assignment/blob/main/notebooks/main.ipynb)
