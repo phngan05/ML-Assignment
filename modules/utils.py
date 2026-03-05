@@ -14,5 +14,6 @@ def setup_data(dataset_slug, target_dir="data"):
 
     # 3. Create directory and download data
     os.makedirs(target_dir, exist_ok=True)
-    !kaggle datasets download -d {dataset_slug} -p {target_dir} --unzip
+    command = f"kaggle datasets download -d {dataset_slug} -p {target_dir} --unzip"
+    os.system(command)
     print(f"--- Data downloaded successfully into '{target_dir}' ---")
