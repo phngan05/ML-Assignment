@@ -8,7 +8,7 @@ def setup_data(dataset_slug, target_dir="data"):
 
     print("--- Setting up Kaggle API and downloading data... ---")
     
-    # 2. Set Kaggle API credentials (replace with your actual credentials)
+    # 2. Set Kaggle API credentials
     os.environ['KAGGLE_USERNAME'] = "phamhongngan"
     os.environ['KAGGLE_KEY'] = "9ad4b995a657d8cc450bcb44b1956724"
 
