@@ -31,3 +31,44 @@ def visualize_text_length_distribution(df, column_name):
     sns.histplot(df[column_name], color="skyblue", kde=True, ax=axes[1])
     fig.suptitle(f'Distribution of {column_name}', fontsize=16)
     plt.show()
+
+def visualize_corr_labels(df, column_name):
+    """
+    Correlation matrix between labels
+    Args:
+        df (pandas.DataFrame): DataFrame containing the labels
+        column_name (str): Name of the column containing the labels
+    """
+    
+    corr_matrix = df[column_name].corr()
+
+    plt.figure(figsize=(8,6))
+    sns.heatmap(
+        corr_matrix,
+        annot=True,
+        cmap="coolwarm",
+        fmt=".2f",
+        linewidths=0.5
+    )
+
+    plt.title("Correlation Matrix Between Labels")
+    plt.xticks(rotation=45)
+    plt.yticks(rotation=0)
+    plt.tight_layout()
+    plt.show()
+
+def visualize_labels_per_article(df, column_name):
+    """
+    Visualize the distribution of labels per article.
+    Args:
+        df (pandas.DataFrame): DataFrame containing the labels
+        column_name (str): Name of the column containing the labels
+    """
+    df['num_labels'] = df[column_name].sum(axis=1)
+    df['num_labels'].value_counts().sort_index()
+
+    df['num_labels'].value_counts().sort_index().plot(kind='bar')
+    plt.xlabel("Number of labels")
+    plt.ylabel("Number of papers")
+    plt.title("Distribution of labels per paper")
+    plt.show()
