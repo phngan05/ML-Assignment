@@ -1,5 +1,7 @@
 import numpy as np
+import pandas as pd
 from nltk.tokenize import sent_tokenize
+from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -71,4 +73,36 @@ def visualize_labels_per_article(df, column_name):
     plt.xlabel("Number of labels")
     plt.ylabel("Number of papers")
     plt.title("Distribution of labels per paper")
+    plt.show()
+
+def get_top_ngram(corpus, n=None, top_k=10):
+    """
+    corpus: df_clean['text_clean']
+    n: 2 for bi-gram, 3 for tri-gram
+    """
+    vec = CountVectorizer(ngram_range=(n, n)).fit(corpus)
+    bag_of_words = vec.transform(corpus)
+    sum_words = bag_of_words.sum(axis=0) 
+    
+    words_freq = [(word, sum_words[0, idx]) for word, idx in vec.vocabulary_.items()]
+    words_freq = sorted(words_freq, key = lambda x: x[1], reverse=True)
+    
+    return pd.DataFrame(words_freq[:top_k], columns=['N-gram', 'Frequency'])
+  
+def visualize_bi_gram(df, labels):
+    fig, axes = plt.subplots(2, 3, figsize=(20, 12)) 
+    axes = axes.flatten() 
+
+    for i, label in enumerate(labels):
+        subset_df = df[df[label] == 1]
+        
+        top_bigrams = get_top_ngram(subset_df['text_clean'], n=2, top_k=20)
+        
+        sns.barplot(x='Frequency', y='N-gram', data=top_bigrams, palette='viridis', ax=axes[i])
+        
+        axes[i].set_title(f'Top 15 Bi-grams: {label}', fontsize=14, fontweight='bold')
+        axes[i].set_xlabel('Số lần xuất hiện', fontsize=10)
+        axes[i].set_ylabel('', fontsize=10)
+
+    plt.tight_layout()
     plt.show()
