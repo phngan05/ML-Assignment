@@ -100,8 +100,8 @@ def visualize_bi_gram(df, labels):
         
         sns.barplot(x='Frequency', y='N-gram', data=top_bigrams, palette='viridis', ax=axes[i])
         
-        axes[i].set_title(f'Top 15 Bi-grams: {label}', fontsize=14, fontweight='bold')
-        axes[i].set_xlabel('Số lần xuất hiện', fontsize=10)
+        axes[i].set_title(f'Top 20 Bi-grams: {label}', fontsize=14, fontweight='bold')
+        axes[i].set_xlabel('frequency', fontsize=10)
         axes[i].set_ylabel('', fontsize=10)
 
     plt.tight_layout()
