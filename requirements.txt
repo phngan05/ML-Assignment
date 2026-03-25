@@ -6,3 +6,4 @@ seaborn
 kaggle
 nltk
 wordcloud
+spacy
