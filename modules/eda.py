@@ -89,18 +89,19 @@ def get_top_ngram(corpus, n=None, top_k=10):
     
     return pd.DataFrame(words_freq[:top_k], columns=['N-gram', 'Frequency'])
   
-def visualize_bi_gram(df, labels):
+
+def visualize_ngram(df, labels, n):
     fig, axes = plt.subplots(2, 3, figsize=(20, 12)) 
     axes = axes.flatten() 
 
     for i, label in enumerate(labels):
         subset_df = df[df[label] == 1]
         
-        top_bigrams = get_top_ngram(subset_df['text_clean'], n=2, top_k=20)
+        top_ngrams = get_top_ngram(subset_df['text_clean'], n=n, top_k=20)
         
-        sns.barplot(x='Frequency', y='N-gram', data=top_bigrams, palette='viridis', ax=axes[i])
+        sns.barplot(x='Frequency', y='N-gram', data=top_ngrams, palette='viridis', ax=axes[i])
         
-        axes[i].set_title(f'Top 20 Bi-grams: {label}', fontsize=14, fontweight='bold')
+        axes[i].set_title(f'Top 20 {n}-grams: {label}', fontsize=14, fontweight='bold')
         axes[i].set_xlabel('frequency', fontsize=10)
         axes[i].set_ylabel('', fontsize=10)
 
