@@ -97,7 +97,7 @@ def visualize_ngram(df, labels, n):
     for i, label in enumerate(labels):
         subset_df = df[df[label] == 1]
         
-        top_ngrams = get_top_ngram(subset_df['text_clean'], n=n, top_k=20)
+        top_ngrams = get_top_ngram(subset_df['lemma_text'], n=n, top_k=20)
         
         sns.barplot(x='Frequency', y='N-gram', data=top_ngrams, palette='viridis', ax=axes[i])
         
