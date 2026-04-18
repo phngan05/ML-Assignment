@@ -1,3 +1,5 @@
+Xem file ở https://colab.research.google.com/github/phngan05/ML-Assignment/blob/Thi%C3%AAn-deep-features/notebooks/main.ipynb
+
 # Machine Learning Assignment
 ## Course Information
 - **Course**: Machine Learning  
