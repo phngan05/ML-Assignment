@@ -7,3 +7,6 @@ kaggle
 nltk
 wordcloud
 spacy
+torch
+transformers
+datasets
