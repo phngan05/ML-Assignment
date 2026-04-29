@@ -205,7 +205,7 @@ def visualize_ngram(df, labels, n):
         
         top_ngrams = get_top_ngram(subset_df['lemma_text'], n=n, top_k=20)
         
-        sns.barplot(x='Frequency', y='N-gram', data=top_ngrams, palette='viridis', ax=axes[i])
+        sns.barplot(x='Frequency', y='N-gram', data=top_ngrams, palette='viridis', hue="N-gram", ax=axes[i])
         
         axes[i].set_title(f'Top 20 {n}-grams: {label}', fontsize=14, fontweight='bold')
         axes[i].set_xlabel('frequency', fontsize=10)
