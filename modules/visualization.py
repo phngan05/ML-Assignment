@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
@@ -252,5 +253,49 @@ def visualize_wordcloud(df, label_columns, text_column='text_clean', palette=Non
         text = " ".join(df[df[label] == 1][text_column].dropna())
         make_wordcloud(text, label, ax, cmap)
     
+    plt.tight_layout()
+    plt.show()
+    
+# ================ FEATURE EXTRACTION =================
+
+def visualize_tfidf_top(top_scores, top_words, X_tfidf):
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    
+    sns.barplot(x=top_scores, y=top_words, palette='viridis', ax=axes[0])
+    axes[0].set_xlabel('Avg TF-IDF Score')
+    axes[0].set_title('Top 15 Terms by TF-IDF')
+    axes[0].grid(axis='x', alpha=0.3)
+
+    # Distribution
+    non_zero = X_tfidf.data
+    axes[1].hist(non_zero, bins=50, color='steelblue', edgecolor='black', alpha=0.7)
+    axes[1].set_xlabel('TF-IDF Value')
+    axes[1].set_ylabel('Frequency')
+    axes[1].set_title('TF-IDF Value Distribution')
+    axes[1].grid(axis='y', alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()
+
+    print(f"TF-IDF stats: min={non_zero.min():.4f}, max={non_zero.max():.4f}, mean={non_zero.mean():.4f}")
+    
+    
+def visualize_models_comparation(results):
+    # Bar chart
+    x = np.arange(len(results))
+    width = 0.35
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.bar(x - width/2, results['Micro-F1'], width, label='Micro-F1', color='steelblue')
+    ax.bar(x + width/2, results['Macro-F1'], width, label='Macro-F1', color='coral')
+    ax.set_xticks(x)
+    ax.set_xticklabels(results['Model'])
+    ax.set_ylim(0, 1)
+    ax.set_ylabel('F1 Score')
+    ax.set_title('LinearSVC vs Random Forest\n(Deep Learning Feature Extraction)')
+    ax.legend()
+    for bar in ax.patches:
+        ax.annotate(f'{bar.get_height():.3f}',
+                    (bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                    ha='center', va='bottom', fontsize=10)
     plt.tight_layout()
     plt.show()

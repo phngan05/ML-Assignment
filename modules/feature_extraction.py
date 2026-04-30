@@ -4,6 +4,20 @@ import gc # Để giải phóng bộ nhớ
 from transformers import AutoTokenizer, AutoModel
 from tqdm import tqdm
 
+
+def show_feature_extraction_top(vectorizer, method_name, X, doc_idx):
+    feature_names = vectorizer.get_feature_names_out()
+    vec = X[doc_idx].toarray().flatten()
+    top = vec.argsort()[-5:][::-1]
+    print(f"{method_name} - Top 5:")
+    count = 1
+    for idx in top:
+        if vec[idx] > 0:
+            print(f"  {count}. {feature_names[idx]:20s} → {vec[idx]:.0f}")
+            count += 1
+
+
+
 def extract_embeddings(text_list, model_id, max_length, device, batch_size=128):
     # Tải tokenizer và model
     tokenizer = AutoTokenizer.from_pretrained(model_id)
