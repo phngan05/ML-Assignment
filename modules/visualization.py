@@ -4,8 +4,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import Counter
-import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+from sklearn.metrics import multilabel_confusion_matrix, ConfusionMatrixDisplay
 
 def visualize_text_length_distribution(df, column_name):
     """
@@ -297,5 +297,21 @@ def visualize_models_comparation(results):
         ax.annotate(f'{bar.get_height():.3f}',
                     (bar.get_x() + bar.get_width() / 2, bar.get_height()),
                     ha='center', va='bottom', fontsize=10)
+    plt.tight_layout()
+    plt.show()
+
+def visualize_confusion_matrix(y_pred, y_test):
+    mcm = multilabel_confusion_matrix(y_test, y_pred)
+    target_names = ['CS', 'Physics', 'Math', 'Stats', 'Bio', 'Finance']
+
+    # 3. Vẽ biểu đồ
+    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+    axes = axes.ravel()
+
+    for i in range(6):
+        disp = ConfusionMatrixDisplay(confusion_matrix=mcm[i],
+                                    display_labels=[f"Not {target_names[i]}", target_names[i]])
+        disp.plot(ax=axes[i], values_format='d', cmap='viridis')
+        axes[i].set_title(f'Confusion Matrix: {target_names[i]}')
     plt.tight_layout()
     plt.show()
