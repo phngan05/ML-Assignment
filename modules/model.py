@@ -2,21 +2,6 @@ import time
 from sklearn.metrics import f1_score, classification_report
 import numpy as np
 
-def tokenize_and_encode(examples,tokenizer):
-    texts = [t + " [SEP] " + a for t, a in zip(examples['TITLE'], examples['ABSTRACT'])]
-    tokenized = tokenizer(texts, padding="max_length", truncation=True, max_length=256)
-
-    # Nhãn phải ở dạng float cho bài toán Multi-label
-    labels = []
-    cols = ['Computer Science', 'Physics', 'Mathematics', 'Statistics', 'Quantitative Biology', 'Quantitative Finance']
-    for i in range(len(examples['TITLE'])):
-        label_row = [float(examples[col][i]) for col in cols]
-        labels.append(label_row)
-
-    tokenized["labels"] = labels
-    return tokenized
-
-
 def train_and_predict(model, dataset):
     X_train, y_train, X_test, y_test = dataset
     t0 = time.time()
@@ -34,11 +19,11 @@ def evaluate_model(y_pred, y_test, label_columns):
     print()
     print(classification_report(y_test, y_pred, target_names=label_columns, zero_division=0))
     
-def find_best_threshold(probs, range, y_test):
+def find_best_threshold(probs, threshold_range, y_test):
     thresholds = []
     for i in range(6):
         best_t, best_f1 = 0.5, 0
-        for t in range:
+        for t in threshold_range:
             pred = (probs[:, i] > t).astype(int)
             f = f1_score(y_test[:, i], pred, zero_division=0)
             if f > best_f1:
