@@ -1,6 +1,3 @@
-Xem file collab mới ở https://colab.research.google.com/github/phngan05/ML-Assignment/blob/Thi%C3%AAn-deep-features/notebooks/main.ipynb
-Lưu ý là file chạy khoảng 2 tiếng mới xong á nên hạn chế chạy lại nha, tui tạm để bên branch khác để các bạn khác làm xong xong được á
-
 # Machine Learning Assignment
 ## Course Information
 - **Course**: Machine Learning  
