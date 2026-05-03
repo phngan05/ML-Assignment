@@ -23,16 +23,11 @@ The primary goal of this project is to apply theoretical machine learning knowle
 - Advanced Text Preprocessing: Execute rigorous cleaning of academic text, including handling scientific notations, lemmatization, and padding to ensure data quality.  
 
 - Feature Extraction: Compare different vectorization techniques to transform text into numerical data:
-
-+ Traditional Methods: Bag-of-Words (BoW) or TF-IDF.  
-
-+ Modern Embeddings: Utilizing pre-trained models (SciBERT) and saving them as .npy files for downstream tasks.  
-
-+ Model Optimization: Evaluate the performance of various classification algorithms to find the most accurate model for classification.  
-
-+ Exploratory Data Analysis (Text-focused): Conduct in-depth EDA to analyze word frequency distributions, document length statistics, and label balance within the article dataset.  
-
-+ Reproducible Research: Deliver a fully functional Google Colab notebook that executes the entire pipeline seamlessly and provides a comparative analysis of the results.
+    + Traditional Methods: Bag-of-Words (BoW) or TF-IDF.  
+    + Modern Embeddings: Utilizing pre-trained models (SciBERT) and saving them as .npy files for downstream tasks.  
+    + Model Optimization: Evaluate the performance of various classification algorithms to find the most accurate model for classification.  
+    + Exploratory Data Analysis (Text-focused): Conduct in-depth EDA to analyze word frequency distributions, document length statistics, and label balance within the article dataset.  
+    + Reproducible Research: Deliver a fully functional Google Colab notebook that executes the entire pipeline seamlessly and provides a comparative analysis of the results.
 
 ---
 
