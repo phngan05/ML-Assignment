@@ -45,8 +45,6 @@ root/
 │
 ├── features/ # Extracted features (.npy / .h5)
 │
-├── reports/
-│ └── report.pdf
 │
 ├── requirements.txt
 └── README.md
@@ -77,4 +75,4 @@ cd ML-Assignment
 
 ## Link
 - **Colab Notebook**: [Open In Colab](https://colab.research.google.com/github/phngan05/ML-Assignment/blob/main/notebooks/main.ipynb)
-- **Report PDF**: 
+- **Report PDF**: [Open Report](https://drive.google.com/file/d/1RlFZOp2guwsUrkBwao8N7RSwBqiweprB/view?usp=sharing)
